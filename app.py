@@ -19,8 +19,10 @@ def home():
             from_unit = request.form['from_unit']
             to_unit = request.form['to_unit']
             result = convert_units(value, from_unit, to_unit)
-        except:
-            result = "Error en la entrada"
+        except ValueError:
+            result = "Error en la entrada: asegúrate de que los valores sean numéricos."
+        except Exception as e:
+            result = f"Error: {e}"
     return render_template('index.html', result=result)
 
 if __name__ == '__main__':
