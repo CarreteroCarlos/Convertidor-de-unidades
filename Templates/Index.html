@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Conversor de Unidades</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Bienvenido al Conversor de Unidades</h1>
+    <div id="anuncio">
+    <!-- Aquí irá el anuncio -->
+    <p>Publicidad: Tu anuncio aquí</p>
+</div>
+    <form method="POST">
+        <input type="text" name="value" placeholder="Valor" required>
+
+        <select name="from_unit">
+            <option value="meter">Metro</option>
+            <option value="kilogram">Kilogramo</option>
+            <option value="celsius">Celsius</option>
+        </select>
+
+        <select name="to_unit">
+            <option value="kilometer">Kilómetro</option>
+            <option value="centimeter">Centímetro</option>
+            <option value="gram">Gramo</option>
+            <option value="pound">Libra</option>
+            <option value="fahrenheit">Fahrenheit</option>
+            <option value="kelvin">Kelvin</option>
+        </select>
+
+        <button type="submit">Convertir</button>
+    </form>
+
+    {% if result is not none %}
+        <h2>Resultado: {{ result }}</h2>
+    {% endif %}
+</body>
+</html>
